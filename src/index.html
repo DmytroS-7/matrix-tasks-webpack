@@ -6,9 +6,156 @@
     <title>Matrix-tasks-webpack</title>
   </head>
   <body>
-    <h1>Matrix-tasks-webpack</h1>
-    <p>
-      ✨ A lightweight foundation for your next webpack based frontend project.
-    </p>
+    <!-- <i class="fas fa-trash"></i> -->
+    <div class="container-fluid lists-container">
+      <div class="row">
+        <div class="col-6" id="importantAndUrgent">
+          <div class="row h-10 header-background">
+            <div class="col-12">
+              <h5>Важные и Срочные</h5>
+            </div>
+          </div>
+
+          <div class="row h-75">
+            <div class="col-6">
+              <h6>TODO</h6>
+              <ul class="todoList">
+                <!-- <li>
+                  <input type="checkbox" /> Task 1 <i class="fas fa-trash"></i>
+                </li> -->
+              </ul>
+            </div>
+            <div class="col-6">
+              <h6>Done</h6>
+              <ul class="done-list importantAndUrgent"></ul>
+            </div>
+          </div>
+          <div class="row h-15">
+            <div class="col-8">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control new-task-input"
+                  placeholder="Add new task"
+                />
+              </div>
+            </div>
+            <div class="col-4">
+              <button class="btn btn-secondary btn-block">Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6" id="importantAndNotUrgent">
+          <div class="row h-10 header-background">
+            <div class="col-12">
+              <h5>Важные и Несрочные</h5>
+            </div>
+          </div>
+
+          <div class="row h-75">
+            <div class="col-6 ">
+              <h6>TODO</h6>
+              <ul class="todoList">
+                <!-- <li>
+                  <input type="checkbox" /> Task 1 <i class="fas fa-trash"></i>
+                </li> -->
+              </ul>
+            </div>
+            <div class="col-6">
+              <h6>Done</h6>
+              <ul class="done-list importantAndNotUrgent"></ul>
+            </div>
+          </div>
+          <div class="row h-15">
+            <div class="col-8">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control new-task-input"
+                  placeholder="Add new task"
+                />
+              </div>
+            </div>
+            <div class="col-4">
+              <button class="btn btn-secondary btn-block">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6" id="notImportantAndUrgent">
+          <div class="row h-10 header-background">
+            <div class="col-12">
+              <h5>Неважные и Срочные</h5>
+            </div>
+          </div>
+
+          <div class="row h-75">
+            <div class="col-6 ">
+              <h6>TODO</h6>
+              <ul class="todoList ">
+                <!-- <li>
+                  <input type="checkbox" /> Task 1 <i class="fas fa-trash"></i>
+                </li> -->
+              </ul>
+            </div>
+            <div class="col-6">
+              <h6>Done</h6>
+              <ul class="done-list notImportantAndUrgent"></ul>
+            </div>
+          </div>
+          <div class="row h-15">
+            <div class="col-8">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control new-task-input"
+                  placeholder="Add new task"
+                />
+              </div>
+            </div>
+            <div class="col-4">
+              <button class="btn btn-secondary btn-block">Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6" id="notImportantAndNotUrgent">
+          <div class="row h-10 header-background">
+            <div class="col-12">
+              <h5>Неважные и Несрочные</h5>
+            </div>
+          </div>
+
+          <div class="row h-75">
+            <div class="col-6 ">
+              <h6>TODO</h6>
+              <ul class="todoList">
+                <!-- <li>
+                  <input type="checkbox" /> Task 1 <i class="fas fa-trash"></i>
+                </li> -->
+              </ul>
+            </div>
+            <div class="col-6">
+              <h6>Done</h6>
+              <ul class="done-list notImportantAndNotUrgent"></ul>
+            </div>
+          </div>
+          <div class="row h-15">
+            <div class="col-8">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control new-task-input"
+                  placeholder="Add new task"
+                />
+              </div>
+            </div>
+            <div class="col-4">
+              <button class="btn btn-secondary btn-block">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

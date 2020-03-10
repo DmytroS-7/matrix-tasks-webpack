@@ -1,1 +1,100 @@
 @import "~bootstrap/scss/bootstrap";
+
+html,
+body,
+.lists-container {
+  height: 100%;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.lists-container > .row {
+  height: 50%;
+  border-bottom: 1px solid #717171;
+}
+
+.lists-container > .row > .col-6 {
+  border-right: 1px solid #717171;
+}
+
+.lists-container ul {
+  list-style-type: none;
+  padding-left: 0;
+
+  .fa-trash {
+    display: none;
+  }
+
+  li {
+    cursor: pointer;
+  }
+
+  li:hover {
+    .fa-trash {
+      margin-left: 5px;
+      display: inline;
+      color: #ff5722;
+    }
+  }
+}
+
+.done-list li {
+  text-decoration: line-through;
+}
+
+.done {
+  // background-color: #dddddd;
+  text-decoration: line-through;
+}
+
+.todoList,
+.done-list {
+  height: 70%;
+  overflow-y: auto;
+}
+
+.header-background {
+  border-bottom: 1px solid #717171;
+}
+
+#importantAndUrgent {
+  background-color: #ffb8b3;
+
+  .header-background {
+    background-color: #ff8880;
+  }
+}
+
+#importantAndNotUrgent {
+  background-color: #b6fbf4;
+
+  .header-background {
+    background-color: #e68982;
+  }
+}
+
+#notImportantAndUrgent {
+  background-color: #ffebb0;
+
+  .header-background {
+    background-color: #96b9ee;
+  }
+}
+
+#notImportantAndNotUrgent {
+  background-color: #ecb6b6;
+
+  .header-background {
+    background-color: #c2bc66;
+  }
+}
+
+.h-10 {
+  height: 10%;
+}
+
+.h-15 {
+  height: 15%;
+}
