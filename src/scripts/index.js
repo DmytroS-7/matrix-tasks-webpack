@@ -29,59 +29,33 @@ let notImportantAndNotUrgent;
   });
 })();
 
-function modifyTodo() {
-  // const elLi = document.getElementsByClassName(this.className);
-  const elemLi = document.getElementById(this.id);
-  //console.log(elemLi.outerText);
-  let txt = this.className;
-  txt = txt.replace("li-", "");
-  const input = elemLi.getElementsByTagName("input")[0];
-  input.checked = true;
+function moveIntoTodo(newListItem, quadrant) {
+  const listTodo = quadrant.getElementsByClassName("todoList")[0];
+  listTodo.appendChild(newListItem); //перемещаю элемент li в Todo список
 
-  const listDone = document.getElementsByClassName(txt)[0]; //нахожу список Done
-  const newLiDone = getLiDoneWithText(elemLi.outerText);
-  listDone.appendChild(newLiDone); //добавляю элемент li в Done список
-  elemLi.classList.add("done");
-  elemLi.remove();
+  const checkbox = newListItem.getElementsByTagName("input")[0];
+  checkbox.addEventListener("click", () => {
+    moveIntoDone(newListItem, quadrant);
+    //alert("moveIntoDone");
+  });
+}
 
-  // listDone.onclick = function(e) {
-  //   const checkClick = e.target.tagName;
-  //   // alert(e.target.tagName);
-  //   if (checkClick == "path") {
-  //     listDone.remove();
-  //   }
-  // };
+function moveIntoDone(newListItem, quadrant) {
+  // console.log(newListItem);
+  // console.log(quadrant);
+  const listDone = quadrant.getElementsByClassName("done-list")[0];
+  listDone.appendChild(newListItem); //перемещаю элемент li в Done список
+
+  const checkbox = newListItem.getElementsByTagName("input")[0];
+  checkbox.addEventListener("click", () => {
+    moveIntoTodo(newListItem, quadrant);
+    //alert("moveIntoTodo");
+  });
 }
 
 function delLiTodo() {
-  alert("del");
-}
-
-function addItemToListDone(quadrant, value) {
-  const listDone = quadrant.getElementsByClassName("done-list")[0]; //нахожу списки Done
-  //console.log(listDone);
-  const newLiDone = getLiDoneWithText(value);
-  listDone.appendChild(newLiDone); //добавляю элемент li в Done список
-}
-
-function getLiDoneWithText(value) {
-  const newListItemDone = document.createElement("li");
-  const checkboxDone = getCheckBoxDone();
-  const textDone = document.createTextNode(" " + value);
-  const spaceDone = document.createTextNode(" ");
-  const iconDone = getDeleteIcon();
-  newListItemDone.appendChild(checkboxDone);
-  newListItemDone.appendChild(textDone);
-  newListItemDone.appendChild(spaceDone);
-  newListItemDone.appendChild(iconDone);
-  return newListItemDone;
-}
-
-function getCheckBoxDone() {
-  const input = document.createElement("input");
-  input.type = "checkbox";
-  input.checked = true;
-  return input;
+  // alert("del");
+  this.parentElement.remove();
 }
 
 function addNewTask(quadrant) {
@@ -101,7 +75,6 @@ function addNewItem(value, quadrant) {
   const list = quadrant.getElementsByClassName("todoList")[0];
   const newLi = getLiWithText(value, quadrant);
   list.appendChild(newLi);
-
   // console.log(list);
 }
 
@@ -111,20 +84,14 @@ function getLiWithText(value, quadrant) {
   const text = document.createTextNode(" " + value);
   const space = document.createTextNode(" ");
   const icon = getDeleteIcon();
-  const valueQuadrantId = quadrant.id;
-  newListItem.className = "li-" + valueQuadrantId;
-  newListItem.id = Date.now();
-  newListItem.addEventListener("click", modifyTodo);
   newListItem.appendChild(checkbox);
   newListItem.appendChild(text);
   newListItem.appendChild(space);
   newListItem.appendChild(icon);
+  checkbox.addEventListener("click", () => {
+    moveIntoDone(newListItem, quadrant);
+  });
   return newListItem;
-}
-
-function getLabel() {
-  const label = document.createElement("label");
-  return label;
 }
 
 function getCheckBox() {
@@ -136,6 +103,8 @@ function getCheckBox() {
 function getDeleteIcon() {
   const i = document.createElement("i");
   i.className = "fas fa-trash";
-  i.addEventListener("click", delLiTodo);
-  return i;
+  const spanIcon = document.createElement("span");
+  spanIcon.appendChild(i);
+  spanIcon.addEventListener("click", delLiTodo);
+  return spanIcon;
 }
